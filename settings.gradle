@@ -1,0 +1,2 @@
+rootProject.name='MyMobileSafe'
+include ':app'
