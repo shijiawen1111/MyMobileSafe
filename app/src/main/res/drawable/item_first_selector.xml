@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--    按压状态-->
+    <item android:drawable="@drawable/first_pressed" android:state_pressed="true" />
+    <!--    平常状态-->
+    <item android:drawable="@drawable/first_normal" />
+</selector>

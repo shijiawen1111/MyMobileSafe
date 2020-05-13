@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    为SettingItemView添加自定义属性-->
+    <declare-styleable name="SettingItemView">
+        <!--  对应SettingItemView的文本进行设置-->
+        <attr name="sivText" format="reference|string" />
+        <!--        自定义背面-->
+        <attr name="sivBackground">
+            <enum name="start" value="0" />
+            <enum name="middle" value="1" />
+            <enum name="end" value="2" />
+        </attr>
+        <!--        是否有开关-->
+        <attr name="sivToggleEnable" format="boolean" />
+    </declare-styleable>
+</resources>

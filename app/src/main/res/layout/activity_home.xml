@@ -39,6 +39,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:marqueeRepeatLimit="marquee_forever"
                 android:singleLine="true"
                 android:text="小米手机卫士,时刻保护你的安全   https://www.xiaomi.com"
                 android:textColor="#ff0000"
@@ -55,4 +59,12 @@
             android:onClick="onClickSetting"
             android:src="@drawable/setting" />
     </RelativeLayout>
+
+    <GridView
+        android:id="@+id/home_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="1dp"
+        android:numColumns="2"
+        android:verticalSpacing="1dp" />
 </LinearLayout>
