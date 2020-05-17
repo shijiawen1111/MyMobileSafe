@@ -15,6 +15,7 @@
         android:textSize="24sp" />
 
     <com.example.mymobilesafe.view.SettingItemView
+        android:id="@+id/setting_siv_autoupdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -22,14 +23,32 @@
         itheima:sivText="自动更新设置" />
 
     <com.example.mymobilesafe.view.SettingItemView
+        android:id="@+id/setting_siv_callsmssafe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         itheima:sivBackground="middle"
-        itheima:sivText="设置条目二" />
+        itheima:sivText="骚扰拦截设置" />
 
     <com.example.mymobilesafe.view.SettingItemView
+        android:id="@+id/setting_siv_autoclean"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         itheima:sivBackground="end"
-        itheima:sivText="设置条目三" />
+        itheima:sivText="屏幕自动清理内存" />
+
+    <com.example.mymobilesafe.view.SettingItemView
+        android:id="@+id/setting_siv_number_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        itheima:sivBackground="start"
+        itheima:sivToggleEnable="true"
+        itheima:sivText="归属地显示设置" />
+
+    <com.example.mymobilesafe.view.SettingItemView
+        android:id="@+id/setting_siv_address_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        itheima:sivBackground="end"
+        itheima:sivToggleEnable="false"
+        itheima:sivText="归属地风格设置" />
 </LinearLayout>

@@ -14,6 +14,8 @@ public class SettingItemView extends RelativeLayout {
     private static final int BACKGROUND_START = 0;
     private static final int BACKGROUND_MIDDLE = 1;
     private static final int BACKROUND_END = 2;
+    private TextView mTvText;
+    private ImageView mIvToggle;
 
     public SettingItemView(Context context) {
         super(context);
@@ -31,8 +33,8 @@ public class SettingItemView extends RelativeLayout {
 
         ta.recycle();
 
-        TextView mTvText = findViewById(R.id.view_setting_tv_text);
-        ImageView mIvToggle = findViewById(R.id.view_setting_iv_toggle);
+        mTvText = findViewById(R.id.view_setting_tv_text);
+        mIvToggle = findViewById(R.id.view_setting_iv_toggle);
 //        赋值
         mTvText.setText(text);
 
@@ -51,5 +53,10 @@ public class SettingItemView extends RelativeLayout {
         }
 //        图片开关
         mIvToggle.setVisibility(toggleEnable ? View.VISIBLE : View.GONE);
+    }
+
+    //    设置开关的状态
+    public void setToggleState(boolean open) {
+        mIvToggle.setImageResource(open ? R.drawable.on : R.drawable.off);
     }
 }
