@@ -15,10 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.SetupActivity1"></activity>
+        <activity android:name=".activity.SjfdActivity" />
+
         <service
             android:name=".service.CallSmsSafeService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
         <service
             android:name=".service.NumberAddressService"
             android:enabled="true"

@@ -15,4 +15,16 @@
         <item name="android:textColor">#B8B6B8</item>
     </style>
 
+    <style name="btnCancerNormal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_cancer_selector</item>
+    </style>
+
+    <style name="btnOkNormal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_ok_selector</item>
+    </style>
+
 </resources>

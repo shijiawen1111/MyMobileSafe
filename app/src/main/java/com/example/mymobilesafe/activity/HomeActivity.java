@@ -11,10 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mymobilesafe.R;
 import com.example.mymobilesafe.bean.HomeBean;
@@ -145,15 +148,117 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
             showEnterPwdDialog();
         } else {
 //            未设置过,则显示密码设置的对话框
+            showPwdSettingDialog();
         }
     }
+
+    private void showPwdSettingDialog() {
+        Log.d(TAG, "显示密码设置的对话框");
+        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+        View view = View.inflate(HomeActivity.this, R.layout.dialog_pwd_setting, null);
+         final EditText dialogEtPwd = view.findViewById(R.id.dialog_et_pwd);
+         final EditText dialogEtConfirm = view.findViewById(R.id.dialog_et_confirm);
+         final Button dialogBtnOk = view.findViewById(R.id.dialog_btn_ok);
+        Button dialogBtnCancer = view.findViewById(R.id.dialog_btn_cancel);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.show();
+        dialogBtnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String pwd = dialogEtPwd.getText().toString().trim();
+//                判断非空
+                if (TextUtils.isEmpty(pwd)) {
+                    Toast.makeText(HomeActivity.this, "请输入密码", Toast.LENGTH_SHORT).show();
+                    dialogBtnOk.requestFocus();// 重新请求焦点
+                    return;
+                }
+                String pwdConfirm = dialogEtConfirm.getText().toString().trim();
+//                判断非空
+                if (TextUtils.isEmpty(pwdConfirm)) {
+                    Toast.makeText(HomeActivity.this, "请输入正确密码", Toast.LENGTH_SHORT).show();
+                    dialogEtConfirm.requestFocus();
+                    return;
+                }
+//                判断两次输入的密码是否一致
+                if (!pwd.equals(pwdConfirm)) {
+                    Toast.makeText(HomeActivity.this, "两次密码输入不一致,请重新输入", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                // 存储密码
+                PreferenceUtils.setString(HomeActivity.this, Config.KEY_SJFD_PWD, pwd.trim());
+                // 进入设置向导界面
+                enterSetup1();
+                // 关闭dialog
+                dialog.dismiss();
+            }
+        });
+        dialogBtnCancer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
     //        设置过,则显示密码输入的对话框
     private void showEnterPwdDialog() {
         Log.d(TAG, "显示密码输入的对话框");
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 //        设置自定义的布局
         View view = View.inflate(this, R.layout.dialog_pwd_enter, null);
+        final EditText dialogEtPwd = view.findViewById(R.id.dialog_et_pwd);
+        Button dialogBtnOk = view.findViewById(R.id.dialog_btn_ok);
+        Button dialogBtnCancer = view.findViewById(R.id.dialog_btn_cancel);
         //TODO
+        builder.setView(view);
+        final AlertDialog dialog = builder.show();//显示
+        dialogBtnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 1. 密码校验
+                String pwd = dialogEtPwd.getText().toString().trim();
+                // 非空判断
+                if (TextUtils.isEmpty(pwd)) {
+                    // 提示用户要输入密码
+                    Toast.makeText(HomeActivity.this, "请输入密码:", Toast.LENGTH_SHORT).show();
+                    // 设置光标
+                    dialogEtPwd.requestFocus();//重新请求焦点
+                    return;
+                }
+                // 密码是否正确
+                String savePwd = PreferenceUtils.getString(HomeActivity.this, Config.KEY_SJFD_PWD);
+                if (savePwd.equals(pwd)) {
+                    // 相同
+                    // 通过持久化存储去存储状态值
+                    boolean flag = PreferenceUtils.getBoolean(HomeActivity.this, Config.KEY_SJFD_SETUP);
+                    // dialog消失
+                    dialog.dismiss();
+                    if (flag) {
+//                        进入手机防盗页面
+                        Intent intent = new Intent(HomeActivity.this, SjfdActivity.class);
+                        startActivity(intent);
+                    } else {
+//                        进入设置向导页面
+                        enterSetup1();
+                    }
+                } else {
+//                    不同
+                    Toast.makeText(HomeActivity.this, "密码不准确,请重新输入!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        dialogBtnCancer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    private void enterSetup1() {
+        Intent intent = new Intent(HomeActivity.this, SetupActivity1.class);
+        startActivity(intent);
     }
 
     private class HomeAdapter extends BaseAdapter {
