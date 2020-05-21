@@ -6,32 +6,36 @@
 
     <TextView
         style="@style/setupTitleStyle"
-        android:text="1.欢迎使用手机防盗" />
+        android:text="4.激活设备管理员" />
 
     <TextView
         style="@style/textNormal"
         android:layout_margin="5dp"
-        android:text="你的防盗手机卫士:" />
+        android:text="激活设备管理员:\n可以远程锁频,可以远程摧毁数据" />
 
-    <TextView
-        style="@style/setupTextItemStyle"
+    <RelativeLayout
+        android:id="@+id/setup4_rl_admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="SIM卡变更报警" />
+        android:background="@drawable/btn_ok_selector"
+        android:orientation="horizontal"
+        android:padding="4dp">
 
-    <TextView
-        style="@style/setupTextItemStyle"
-        android:layout_margin="8dp"
-        android:text="GPS追踪" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="点击激活/取消激活设备管理员"
+            android:textColor="@color/btn_ok_textcolor" />
 
-    <TextView
-        style="@style/setupTextItemStyle"
-        android:layout_margin="8dp"
-        android:text="远程锁频" />
-
-    <TextView
-        style="@style/setupTextItemStyle"
-        android:layout_margin="8dp"
-        android:text="远程摧毁数据" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/admin_activated" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,7 +45,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/step_1" />
+            android:src="@drawable/step_4" />
+
+        <Button
+            style="@style/setupBtnPreStyle"
+            android:text="上一步" />
 
         <Button
             style="@style/setupBtnNextStyle"
@@ -57,6 +65,24 @@
             <ImageView
                 android:layout_width="8dp"
                 android:layout_height="8dp"
+                android:src="@drawable/point_normal" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="4dp"
+                android:src="@drawable/point_normal" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="4dp"
+                android:src="@drawable/point_normal" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="4dp"
                 android:src="@drawable/point_select" />
 
             <ImageView
@@ -64,25 +90,6 @@
                 android:layout_height="8dp"
                 android:layout_marginLeft="4dp"
                 android:src="@drawable/point_normal" />
-
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginLeft="4dp"
-                android:src="@drawable/point_normal" />
-
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginLeft="4dp"
-                android:src="@drawable/point_normal" />
-
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginLeft="4dp"
-                android:src="@drawable/point_normal" />
-
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

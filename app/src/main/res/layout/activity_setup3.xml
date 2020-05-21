@@ -6,32 +6,30 @@
 
     <TextView
         style="@style/setupTitleStyle"
-        android:text="1.欢迎使用手机防盗" />
+        android:text="3.设置安全号码" />
 
     <TextView
         style="@style/textNormal"
         android:layout_margin="5dp"
-        android:text="你的防盗手机卫士:" />
+        android:text="SIM卡如果发生变化:\n就会发送报警短信给安全号码" />
 
-    <TextView
-        style="@style/setupTextItemStyle"
+    <EditText
+        android:id="@+id/setup3_et_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="SIM卡变更报警" />
+        android:hint="请输入安全号码"
+        android:phoneNumber="true"
+        android:singleLine="true" />
 
-    <TextView
-        style="@style/setupTextItemStyle"
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="GPS追踪" />
-
-    <TextView
-        style="@style/setupTextItemStyle"
-        android:layout_margin="8dp"
-        android:text="远程锁频" />
-
-    <TextView
-        style="@style/setupTextItemStyle"
-        android:layout_margin="8dp"
-        android:text="远程摧毁数据" />
+        android:background="@drawable/btn_ok_selector"
+        android:onClick="clickContact"
+        android:text="请选择安全号码"
+        android:textColor="@color/btn_ok_textcolor" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,7 +39,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/step_1" />
+            android:src="@drawable/step_3" />
+
+        <Button
+            style="@style/setupBtnPreStyle"
+            android:text="上一步" />
 
         <Button
             style="@style/setupBtnNextStyle"
@@ -52,11 +54,24 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="8dp"
                 android:layout_height="8dp"
+                android:src="@drawable/point_normal" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="4dp"
+                android:src="@drawable/point_normal" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="4dp"
                 android:src="@drawable/point_select" />
 
             <ImageView
@@ -70,19 +85,6 @@
                 android:layout_height="8dp"
                 android:layout_marginLeft="4dp"
                 android:src="@drawable/point_normal" />
-
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginLeft="4dp"
-                android:src="@drawable/point_normal" />
-
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginLeft="4dp"
-                android:src="@drawable/point_normal" />
-
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

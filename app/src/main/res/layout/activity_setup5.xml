@@ -6,32 +6,13 @@
 
     <TextView
         style="@style/setupTitleStyle"
-        android:text="1.欢迎使用手机防盗" />
+        android:text="5.恭喜你!设置完成!" />
 
-    <TextView
-        style="@style/textNormal"
-        android:layout_margin="5dp"
-        android:text="你的防盗手机卫士:" />
-
-    <TextView
-        style="@style/setupTextItemStyle"
-        android:layout_margin="8dp"
-        android:text="SIM卡变更报警" />
-
-    <TextView
-        style="@style/setupTextItemStyle"
-        android:layout_margin="8dp"
-        android:text="GPS追踪" />
-
-    <TextView
-        style="@style/setupTextItemStyle"
-        android:layout_margin="8dp"
-        android:text="远程锁频" />
-
-    <TextView
-        style="@style/setupTextItemStyle"
-        android:layout_margin="8dp"
-        android:text="远程摧毁数据" />
+    <CheckBox
+        android:id="@+id/setup5_cb_protecting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选中开启防盗保护" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,11 +22,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/step_1" />
+            android:src="@drawable/step_5" />
+
+        <Button
+            style="@style/setupBtnPreStyle"
+            android:text="上一步" />
 
         <Button
             style="@style/setupBtnNextStyle"
-            android:text="下一步" />
+            android:text="设置完成" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -57,32 +42,31 @@
             <ImageView
                 android:layout_width="8dp"
                 android:layout_height="8dp"
+                android:src="@drawable/point_normal" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="4dp"
+                android:src="@drawable/point_normal" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="4dp"
+                android:src="@drawable/point_normal" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="4dp"
+                android:src="@drawable/point_normal" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginLeft="4dp"
                 android:src="@drawable/point_select" />
-
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginLeft="4dp"
-                android:src="@drawable/point_normal" />
-
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginLeft="4dp"
-                android:src="@drawable/point_normal" />
-
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginLeft="4dp"
-                android:src="@drawable/point_normal" />
-
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginLeft="4dp"
-                android:src="@drawable/point_normal" />
-
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
