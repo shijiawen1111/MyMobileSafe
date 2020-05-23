@@ -64,7 +64,6 @@ public class SettingActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
 //                自动更新设置
             case R.id.setting_siv_autoupdate:
-//                TODO :
                 clickAutoUpdate();
                 break;
 //                骚扰拦截设置

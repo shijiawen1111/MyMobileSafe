@@ -82,7 +82,6 @@
                 android:layout_height="8dp"
                 android:layout_marginLeft="4dp"
                 android:src="@drawable/point_normal" />
-
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
