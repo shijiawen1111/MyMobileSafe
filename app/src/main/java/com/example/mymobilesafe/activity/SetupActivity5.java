@@ -2,14 +2,27 @@ package com.example.mymobilesafe.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.CheckBox;
+import android.widget.Toast;
+
 import com.example.mymobilesafe.R;
+import com.example.mymobilesafe.utils.Config;
+import com.example.mymobilesafe.utils.PreferenceUtils;
 
 public class SetupActivity5 extends BaseSetUpActivity {
+
+    private CheckBox mCbProtecting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup5);
+        initView();
+    }
+
+    private void initView() {
+        mCbProtecting = findViewById(R.id.setup5_cb_protecting);
+        mCbProtecting.setChecked(PreferenceUtils.getBoolean(SetupActivity5.this, Config.KEY_SJFD_PROTECTING));
     }
 
     /**
@@ -28,7 +41,8 @@ public class SetupActivity5 extends BaseSetUpActivity {
 
     /**
      * 跳转到手机防盗界面
-     * @param view
+     *
+     * @param
      */
 //    public void clickNext(View view) {
 //        Intent intent = new Intent(SetupActivity5.this, SjfdActivity.class);
@@ -39,7 +53,6 @@ public class SetupActivity5 extends BaseSetUpActivity {
 //        overridePendingTransition(enterAnim, exitAnim);
 //        finish();
 //    }
-
     @Override
     protected boolean performPre() {
         Intent intent = new Intent(SetupActivity5.this, SetupActivity4.class);
@@ -49,6 +62,15 @@ public class SetupActivity5 extends BaseSetUpActivity {
 
     @Override
     protected boolean performNext() {
+        // 如果checkbox没有选中，提示要选中
+        if (!mCbProtecting.isChecked()) {
+            Toast.makeText(this, "勾选后才能开启防盗保护", Toast.LENGTH_SHORT).show();
+            return true;//终止
+        }
+        // 数据的操作，存储是否开启了防盗保护
+        PreferenceUtils.setBoolean(SetupActivity5.this, Config.KEY_SJFD_PROTECTING, true);
+        // 存储已经设置过了设置向导
+        PreferenceUtils.setBoolean(SetupActivity5.this, Config.KEY_SJFD_SETUP, true);
         Intent intent = new Intent(SetupActivity5.this, SjfdActivity.class);
         startActivity(intent);
         return false;

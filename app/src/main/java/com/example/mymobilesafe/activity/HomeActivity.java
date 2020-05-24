@@ -235,7 +235,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
                     // dialog消失
                     dialog.dismiss();
                     if (flag) {
-//                        进入手机防盗页面
+//                        进入设置完成的页面
                         Intent intent = new Intent(HomeActivity.this, SjfdActivity.class);
                         startActivity(intent);
                     } else {
