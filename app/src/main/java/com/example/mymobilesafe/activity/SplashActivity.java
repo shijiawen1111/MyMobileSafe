@@ -6,10 +6,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -342,7 +339,7 @@ public class SplashActivity extends Activity {
     private class CheckVersionTask implements Runnable {
         @Override
         public void run() {
-            String path = "http://192.168.0.101:8080/update.json";
+            String path = "http://192.168.0.100:8080/update.json";
             try {
                 URL url = new URL(path);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
