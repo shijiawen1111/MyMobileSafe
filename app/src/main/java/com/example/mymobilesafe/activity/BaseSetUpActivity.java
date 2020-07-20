@@ -118,14 +118,12 @@ public abstract class BaseSetUpActivity extends Activity {
 
     /**
      * 上一步的操作
-     *
      * @return true:不往下执行了 fasle:继续往下执行
      */
     protected abstract boolean performPre();
 
     /**
      * 下一步的操作
-     *
      * @return true:不往下执行了 fasle:继续往下执行
      */
     protected abstract boolean performNext();

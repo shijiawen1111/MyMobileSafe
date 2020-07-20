@@ -154,7 +154,6 @@ public class SplashActivity extends Activity {
 
     /**
      * 去安装Apk的方法
-     *
      * @param file
      */
     private void installApk(File file) {
@@ -256,7 +255,6 @@ public class SplashActivity extends Activity {
             StreamUtils.closeIO(fos);
             StreamUtils.closeIO(stream);
         }
-
     }
 
     /**

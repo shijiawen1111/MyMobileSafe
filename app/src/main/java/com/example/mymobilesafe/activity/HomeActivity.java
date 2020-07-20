@@ -103,9 +103,9 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
             case 0:
                 clickSjfd();
                 break;
-//                    "骚扰拦截"
             case 1:
-
+//                    "骚扰拦截"
+                clickSrlj();
                 break;
 //                    "软件管家"
             case 2:
@@ -134,6 +134,13 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
             default:
                 break;
         }
+    }
+
+    /**
+     * 点击骚扰拦截
+     */
+    private void clickSrlj() {
+
     }
 
     /**
