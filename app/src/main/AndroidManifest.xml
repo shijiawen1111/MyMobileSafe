@@ -11,9 +11,9 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <!--添加定位的权限-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS" /> <!-- 添加定位的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,6 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.BlackEditActivity"></activity>
+        <activity android:name=".activity.SrljActivity" />
 
         <service
             android:name=".service.CallSmsSafeService"
@@ -33,14 +35,27 @@
         <service
             android:name=".service.AutoCleanService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true" /> <!-- 设备管理员 -->
+        <receiver
+            android:name=".receiver.SjfdAdminReceiver"
+            android:description="@string/sample_device_admin_description"
+            android:enabled="false"
+            android:exported="false"
+            android:label="@string/sample_device_admin"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.admin"
+                android:resource="@xml/device_admin_sample" />
 
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
         <receiver android:name=".receiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
         <receiver android:name=".receiver.SmsReceiver">
             <intent-filter android:priority="1000">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />

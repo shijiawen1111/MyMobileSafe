@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/be_tv_title"
+        style="@style/titleBarStyle"
+        android:text="添加黑名单" />
+
+    <TextView
+        style="@style/textNormal"
+        android:text="电话号码:" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/edit_selector"
+        android:hint="请输入电话号码:"
+        android:textSize="14sp"
+        android:phoneNumber="true"
+        android:singleLine="true" />
+
+    <TextView
+        style="@style/textNormal"
+        android:text="拦截类型:" />
+
+    <RadioGroup
+        android:id="@+id/be_rg_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/be_rb_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="电话"/>
+
+        <RadioButton
+            android:id="@+id/be_rb_sms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="短信">
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/be_rb_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="全部"/>
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/be_btn_ok"
+                style="@style/btnOkNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:text="保存" />
+
+            <Button
+                android:id="@+id/be_btn_cancer"
+                style="@style/btnOkNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:text="取消" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

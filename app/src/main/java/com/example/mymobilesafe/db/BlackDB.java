@@ -28,5 +28,4 @@ public interface BlackDB {
 				+ " TEXT UNIQUE," + COLUMN_TYPE + " INTEGER" + ")";
 
 	}
-
 }

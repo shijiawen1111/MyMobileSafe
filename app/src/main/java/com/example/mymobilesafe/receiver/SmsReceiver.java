@@ -1,5 +1,6 @@
 package com.example.mymobilesafe.receiver;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -37,6 +38,9 @@ public class SmsReceiver extends BroadcastReceiver {
                 }else if ("#*wipedata*#".equals(content)){
                     //TODO
                     Log.d(TAG, "远程消除数据");
+                    DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+                    //清理内部和外部存储
+                    dpm.wipeData(DevicePolicyManager.WIPE_EXTERNAL_STORAGE);
                 }else if ("#*alarm*#".equals(content)){
                     MediaPlayer player = MediaPlayer.create(context, R.raw.alarm);
                     player.setLooping(true);//无限播放
@@ -46,9 +50,20 @@ public class SmsReceiver extends BroadcastReceiver {
                 }else if (!"#*lockscreen*#".equals(content) && content.startsWith("#*lockscreen*#")){
                     //TODO
                     Log.d(TAG, "远程锁屏");
-                }else if ("#*lockscreen*#".equals(content)){
+                    DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+                    //设置锁屏密码
+                    dpm.resetPassword("123", 0);
+                    //立即锁屏
+                    dpm.lockNow();
+                }else if (!"#*lockscreen*#".equals(content)){
                     //TODO
                     Log.d(TAG, "远程锁屏");
+                    DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+                    String password = content.substring("#*lockscreen*".length());
+                    //设置锁屏密码
+                    dpm.resetPassword(password, 0);
+                    //立即锁屏
+                    dpm.lockNow();
                 }
                 //不让用户看到短信内容
                 abortBroadcast();

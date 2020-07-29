@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -140,7 +139,9 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
      * 点击骚扰拦截
      */
     private void clickSrlj() {
-
+        //TODO
+        Intent intent = new Intent(HomeActivity.this, SrljActivity.class);
+        startActivity(intent);
     }
 
     /**

@@ -30,6 +30,7 @@
             android:textColor="@color/btn_ok_textcolor" />
 
         <ImageView
+            android:id="@+id/setup4_iv_admin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
