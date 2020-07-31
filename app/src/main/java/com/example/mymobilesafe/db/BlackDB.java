@@ -16,7 +16,6 @@ public interface BlackDB {
 	 */
 	public interface TableBlack {
 		String TABLE_NAME = "black";
-
 		// 列
 		String COLUMN_ID = "_id";
 		String COLUMN_NUMBER = "number";

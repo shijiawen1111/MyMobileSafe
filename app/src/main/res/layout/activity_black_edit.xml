@@ -14,14 +14,15 @@
         android:text="电话号码:" />
 
     <EditText
+        android:id="@+id/be_et_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="@drawable/edit_selector"
         android:hint="请输入电话号码:"
-        android:textSize="14sp"
         android:phoneNumber="true"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:textSize="14sp" />
 
     <TextView
         style="@style/textNormal"
@@ -39,22 +40,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="电话"/>
+            android:text="电话" />
 
         <RadioButton
             android:id="@+id/be_rb_sms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="短信">
-        </RadioButton>
+            android:text="短信"></RadioButton>
 
         <RadioButton
             android:id="@+id/be_rb_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="全部"/>
+            android:text="全部" />
     </RadioGroup>
 
     <RelativeLayout

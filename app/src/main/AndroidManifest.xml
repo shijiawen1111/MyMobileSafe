@@ -21,8 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.BlackEditActivity"></activity>
-        <activity android:name=".activity.SrljActivity" />
+        <activity android:name=".activity.CallSmsSafeActivity"></activity>
+        <activity android:name=".activity.BlackEditActivity" />
 
         <service
             android:name=".service.CallSmsSafeService"

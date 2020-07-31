@@ -140,7 +140,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
      */
     private void clickSrlj() {
         //TODO
-        Intent intent = new Intent(HomeActivity.this, SrljActivity.class);
+        Intent intent = new Intent(HomeActivity.this, CallSmsSafeActivity.class);
         startActivity(intent);
     }
 
