@@ -56,7 +56,7 @@ public class BlackEditActivity extends Activity implements View.OnClickListener 
             // 以update行为进入
             mTvTitle.setText("更新黑名单");
             mEtNumber.setEnabled(false);
-            mEtNumber.setText(intent.getStringExtra("KEY_NUMBER"));
+            mEtNumber.setText(intent.getStringExtra(KEY_NUMBER));
             // 选中已经选中的radiobutton
             int type = intent.getIntExtra(KEY_TYPE, -1);//call-0
             int id = -1;

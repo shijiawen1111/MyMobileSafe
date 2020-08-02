@@ -3,11 +3,14 @@ package com.example.mymobilesafe.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,14 +21,20 @@ import com.example.mymobilesafe.db.BlackDao;
 
 import java.util.List;
 
-public class CallSmsSafeActivity extends Activity implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class CallSmsSafeActivity extends Activity implements View.OnClickListener, AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
     private static final int REQUEST_ADD = 1;
     private static final int REQUEST_UPDATE = 0;
+    private static final String TAG = "CallSmsSafeActivity";
     private ImageView mCssIvAdd;
     private ListView mListView;
     private BlackDao mDao;
     private List<BlackBean> mDatas;
     private CallSmsAdapter mAdapter;
+    private LinearLayout mLlLoading;
+    private ImageView mIvEmpty;
+    private int mPages = 10;
+    private boolean isLoadingMore = true;//    表示当前正在加载更多,就不往下执行
+    private boolean isLoadAll = false;//        表示是否已经是最多了
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,19 +50,46 @@ public class CallSmsSafeActivity extends Activity implements View.OnClickListene
     private void initView() {
         mCssIvAdd = findViewById(R.id.css_iv_add);
         mListView = findViewById(R.id.css_listview);
+        mLlLoading = findViewById(R.id.css_ll_loading);
+        mIvEmpty = findViewById(R.id.css_iv_empty);
     }
 
     private void initEvent() {
         mCssIvAdd.setOnClickListener(this);
+        mListView.setOnItemClickListener(this);
+        mListView.setOnScrollListener(this);
     }
 
     private void initData() {
-        // 查询所有数据
-        mDatas = mDao.findAll();
-        // 实现adapter--》List<数据>-->item条目
-        mAdapter = new CallSmsAdapter();
-        mListView.setAdapter(mAdapter);
-        mListView.setOnItemClickListener(this);
+
+        // 在耗时操作前，显示加载的进度
+        mLlLoading.setVisibility(View.VISIBLE);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // 查询所有数据,有的时候数据太大,会消耗很多的内存,显得很卡顿,因此我们就改成了分页查询
+                //mDatas = mDao.findAll();
+                //分页查询,每次查询的数据为20条
+                mDatas = mDao.findPart(mPages, 0);
+                // 模拟延时操作
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                // UI操作，需要回归主线程
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // 耗时操作后，隐藏进度
+                        mLlLoading.setVisibility(View.GONE);
+                        // 实现adapter--》List<数据>-->item条目
+                        mAdapter = new CallSmsAdapter();
+                        mListView.setAdapter(mAdapter);
+                    }
+                });
+            }
+        }).start();
     }
 
     @Override
@@ -75,6 +111,78 @@ public class CallSmsSafeActivity extends Activity implements View.OnClickListene
         startActivityForResult(intent, REQUEST_UPDATE);
     }
 
+    /**
+     * 当ListView滑动状态改变时回调的方法.
+     * @param view
+     * @param scrollState
+     */
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+    }
+
+    /**
+     * 当ListView滑动时回调的方法
+     * @param view
+     * @param firstVisibleItem
+     * @param visibleItemCount
+     * @param totalItemCount
+     */
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        // firstVisibleItem:第一个可见的条目的position
+        // visibleItemCount：可见条目的数量
+        // totalItemCount:总共的条目数量
+        if (mAdapter == null || mDao == null) {
+            return;
+        }
+        // 获得最后一个可见的条目
+        int lastListViewPosition = mListView.getLastVisiblePosition();
+        // 必须滑动到底部
+        if (lastListViewPosition == mAdapter.getCount() - 1) {
+            // 滑动到底部
+            // 当前正在加载更多，就不往下执行
+            if (isLoadingMore) {
+                return;
+            }
+            // 是否已经是最多了
+            if (isLoadAll) {
+                return;
+            }
+            // 开始加载更多了
+            Log.d(TAG, "开始加载更多了");
+            isLoadingMore = true;
+            mLlLoading.setVisibility(View.VISIBLE);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    // 加载更多的数据
+                    final List<BlackBean> part = mDao.findPart(mPages, mAdapter.getCount());
+                    if (part == null || part.size() < mPages) {
+                        isLoadAll = true;
+                    }
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mLlLoading.setVisibility(View.GONE);
+                            // 添加部分
+                            mDatas.addAll(part);
+                            // UI更新
+                            mAdapter.notifyDataSetChanged();
+                            // 加载更多结束
+                            isLoadingMore = false;
+                        }
+                    });
+                }
+            }).start();
+        }
+    }
+
     private class CallSmsAdapter extends BaseAdapter {
 
         private BlackBean bean;
@@ -82,8 +190,12 @@ public class CallSmsSafeActivity extends Activity implements View.OnClickListene
         @Override
         public int getCount() {
             if (mDatas != null) {
+                // 提示的空view
+                mIvEmpty.setVisibility(mDatas.size() == 0 ? View.VISIBLE : View.GONE);
                 return mDatas.size();
             }
+            // 提示的空view可见
+            mListView.setVisibility(View.VISIBLE);
             return 0;
         }
 

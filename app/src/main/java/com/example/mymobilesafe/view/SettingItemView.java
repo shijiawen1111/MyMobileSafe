@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.example.mymobilesafe.R;
 
 public class SettingItemView extends RelativeLayout {

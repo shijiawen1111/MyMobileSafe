@@ -36,6 +36,7 @@ public class CallSmsSafeService extends Service {
     private CallListerner mCall;
 
     public CallSmsSafeService() {
+
     }
 
     @Override
@@ -132,8 +133,11 @@ public class CallSmsSafeService extends Service {
                     // IBinder ibinder = ServiceManager
                     // .getService(Context.TELEPHONY_SERVICE);
                     try {
+                        // 获取到ServiceManager 的类名
                         Class<?> clazz = Class.forName("android.os.ServiceManager");
+                        // 暴力反射（第一个参数：表示方法名字，第二个参数：表示方法的类型）
                         Method method = clazz.getMethod("getService", String.class);
+                        // 调用当前的方法（第一个参数：表示谁调用当前方法)
                         IBinder iBinder = (IBinder) method.invoke(null, Context.TELEPHONY_SERVICE);
                         iTelephony = ITelephony.Stub.asInterface(iBinder);
 

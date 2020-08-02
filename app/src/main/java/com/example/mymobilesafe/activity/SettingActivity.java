@@ -68,7 +68,11 @@ public class SettingActivity extends Activity implements View.OnClickListener {
                 break;
 //                骚扰拦截设置
             case R.id.setting_siv_callsmssafe:
-                clickCallSmsSafe();
+                if (v == mSivAutoCallSmsSafe) {
+                    clickCallSmsSafe();
+                } else if (v == mSivAutoUpdate) {
+                    clickAutoUpdate();
+                }
                 break;
 //                自动清除缓存设置
             case R.id.setting_siv_autoclean:

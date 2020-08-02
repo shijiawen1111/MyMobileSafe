@@ -22,12 +22,40 @@
             android:scaleType="center"
             android:src="@drawable/btn_menu_add_selector" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/css_ll_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateDrawable="@drawable/loading_bg" />
+
+            <TextView
+                style="@style/textNormal"
+                android:text="加载中..." />
+        </LinearLayout>
+
         <ListView
             android:id="@+id/css_listview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/css_iv_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/empty"
+            android:visibility="gone" />
     </RelativeLayout>
 </LinearLayout>
