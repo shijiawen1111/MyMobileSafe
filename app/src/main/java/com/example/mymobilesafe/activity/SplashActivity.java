@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 
 import com.example.mymobilesafe.R;
 import com.example.mymobilesafe.utils.Config;
+import com.example.mymobilesafe.utils.GZipUtils;
 import com.example.mymobilesafe.utils.PackageUtils;
 import com.example.mymobilesafe.utils.PreferenceUtils;
 import com.example.mymobilesafe.utils.StreamUtils;
@@ -237,18 +238,19 @@ public class SplashActivity extends Activity {
         InputStream stream = null;
         FileOutputStream fos = null;
         try {
-            File file = new File(getFilesDir(), "address.zip");
+            File file = new File(getFilesDir(), "address.db");
             if (file.exists()) {
                 return;
             }
             AssetManager assets = this.getAssets();
             stream = assets.open("address.zip");
             fos = new FileOutputStream(file);
-            int len = -1;
-            byte[] bytes = new byte[1024];
-            while ((len = stream.read(bytes)) != -1) {
-                fos.write(bytes, 0, len);
-            }
+//            int len = -1;
+//            byte[] bytes = new byte[1024];
+//            while ((len = stream.read(bytes)) != -1) {
+//                fos.write(bytes, 0, len);
+//            }
+            GZipUtils.unzip(stream, fos);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -337,7 +339,7 @@ public class SplashActivity extends Activity {
     private class CheckVersionTask implements Runnable {
         @Override
         public void run() {
-            String path = "http://192.168.0.100:8080/update.json";
+            String path = "http://192.168.0.101:8080/update.json";
             try {
                 URL url = new URL(path);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();

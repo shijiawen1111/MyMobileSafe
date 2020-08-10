@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".activity.CommonToolActivity">
+
+    <TextView
+        style="@style/titleBarStyle"
+        android:text="@string/common_tool" />
+
+    <com.example.mymobilesafe.view.SettingItemView
+        android:id="@+id/tv_number"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        app:sivText="@string/number_address"
+        app:sivBackground="start"
+        app:sivToggleEnable="false"/>
+
+    <com.example.mymobilesafe.view.SettingItemView
+        android:id="@+id/common_number"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:sivBackground="start"
+        app:sivText="@string/common_number"
+        app:sivToggleEnable="false" />
+</LinearLayout>

@@ -3,5 +3,14 @@
     <string name="sample_device_admin_description">手机防盗描述内容</string>
     <string name="sample_device_admin">手机防盗</string>
     <string name="add_admin_extra_app_text">开启手机防盗保护的描述</string>
-
+    <string name="number_address">号码归属地查询</string>
+    <string name="number_input">请输入手机号码:</string>
+    <string name="number_btn_query">查询</string>
+    <string name="number_query_address">归属地:</string>
+    <string name="common_tool">常用工具</string>
+    <string name="common_number">常用号码</string>
+    <string name="common_number_query">常用号码查询</string>
+    <string name="group_title">group的title</string>
+    <string name="child_name">child的名字</string>
+    <string name="child_number">child的number</string>
 </resources>

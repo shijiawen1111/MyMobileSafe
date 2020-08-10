@@ -98,37 +98,36 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
-//                    "手机防盗"
             case 0:
+//                    "手机防盗"
                 clickSjfd();
                 break;
             case 1:
 //                    "骚扰拦截"
                 clickSrlj();
                 break;
-//                    "软件管家"
             case 2:
+//                    "软件管家"
 
                 break;
-//                    "进程管理"
             case 3:
+//                    "进程管理"
 
                 break;
-//                    "流量统计"
             case 4:
+//                    "流量统计"
 
                 break;
-//                    "手机杀毒"
             case 5:
+//                    "手机杀毒"
 
                 break;
-//                    "缓存清理"
             case 6:
-
+//                    "缓存清理"
                 break;
-//                    "常用工具"
             case 7:
-
+//                    "常用工具"
+                clickCygj();
                 break;
             default:
                 break;
@@ -160,13 +159,20 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
         }
     }
 
+    /**
+     * 点击常用工具
+     */
+    private void clickCygj() {
+        Intent intent = new Intent(HomeActivity.this, CommonToolActivity.class);
+        startActivity(intent);
+    }
     private void showPwdSettingDialog() {
         Log.d(TAG, "显示密码设置的对话框");
         AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
         View view = View.inflate(HomeActivity.this, R.layout.dialog_pwd_setting, null);
-         final EditText dialogEtPwd = view.findViewById(R.id.dialog_et_pwd);
-         final EditText dialogEtConfirm = view.findViewById(R.id.dialog_et_confirm);
-         final Button dialogBtnOk = view.findViewById(R.id.dialog_btn_ok);
+        final EditText dialogEtPwd = view.findViewById(R.id.dialog_et_pwd);
+        final EditText dialogEtConfirm = view.findViewById(R.id.dialog_et_confirm);
+        final Button dialogBtnOk = view.findViewById(R.id.dialog_btn_ok);
         Button dialogBtnCancer = view.findViewById(R.id.dialog_btn_cancel);
 
         builder.setView(view);

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_8dp" >8dp</dimen>
+    <dimen name="margin_10dp" >10dp</dimen>
+    <dimen name="btn_query_12sp" >12sp</dimen>
+    <dimen name="stroke_1dp" >1dp</dimen>
+    <dimen name="stroke_3dp" >3dp</dimen>
+    <dimen name="padding_8dp" >8dp</dimen>
+</resources>

@@ -3,8 +3,7 @@
     package="com.example.mymobilesafe">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--    挂断电话需要配置一个权限-->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 挂断电话需要配置一个权限 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -25,7 +24,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.CallSmsSafeActivity"></activity>
+        <activity android:name=".activity.CommonNumberActivity"></activity>
+        <activity android:name=".activity.CommonToolActivity" />
+        <activity android:name=".activity.NumberAddressActivity" />
+        <activity android:name=".activity.CallSmsSafeActivity" />
         <activity android:name=".activity.BlackEditActivity" />
 
         <service

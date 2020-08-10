@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.NumberAddressActivity">
+
+    <TextView
+        style="@style/titleBarStyle"
+        android:text="@string/number_address" />
+
+    <EditText
+        android:id="@+id/et_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_8dp"
+        android:background="@drawable/edit_selector"
+        android:hint="@string/number_input"
+        android:phoneNumber="true"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/number_btn_query"
+        style="@style/btnOkNormal"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_8dp"
+        android:text="@string/number_btn_query"
+        android:textSize="@dimen/btn_query_12sp" />
+
+    <TextView
+        android:id="@+id/number_tv_address"
+        style="@style/textNormal"
+        android:layout_margin="@dimen/margin_8dp"
+        android:text="@string/number_query_address" />
+</LinearLayout>
