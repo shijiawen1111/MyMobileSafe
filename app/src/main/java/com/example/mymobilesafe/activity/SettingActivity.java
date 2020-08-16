@@ -33,6 +33,14 @@ public class SettingActivity extends Activity implements View.OnClickListener {
         initEvent();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //初始化显示骚扰拦截服务的状态
+        mSivAutoCallSmsSafe.setToggleState(ServiceStateUtils.isServiceRunning(this, CallSmsSafeService.class));
+        mSivNumberAddress.setToggleState(ServiceStateUtils.isServiceRunning(this, NumberAddressService.class));
+    }
+
     /**
      * 初始化控件
      */
@@ -77,12 +85,12 @@ public class SettingActivity extends Activity implements View.OnClickListener {
             case R.id.setting_siv_autoclean:
                 clickAutoClean();
                 break;
-//                归属地显示设置
             case R.id.setting_siv_number_address:
+//                归属地显示设置
                 clickNumberAddress();
                 break;
-//                归属地显示风格设置
             case R.id.setting_siv_address_style:
+//                归属地显示风格设置
                 clickAddressStyle();
                 break;
             default:

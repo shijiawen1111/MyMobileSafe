@@ -22,6 +22,7 @@ public class NumberAddressService extends Service {
     private CallOutReceiver mCallOutReceiver;
 
     public NumberAddressService() {
+
     }
 
     @Override

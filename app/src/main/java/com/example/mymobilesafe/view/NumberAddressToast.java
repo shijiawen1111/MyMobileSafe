@@ -2,7 +2,6 @@ package com.example.mymobilesafe.view;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
-import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;

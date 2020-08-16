@@ -1,12 +1,13 @@
 package com.example.mymobilesafe.activity;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.example.mymobilesafe.R;
@@ -21,6 +22,7 @@ public class CommonNumberActivity extends Activity {
     private ExpandableListView mEdListView;
     private List<GroupBean> mGroupDatas;
     private GroupBean mGroupBean;
+    private int mCurrentOpenGroup = -1;//当前group控制条目,表示一个都没有展开
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class CommonNumberActivity extends Activity {
         setContentView(R.layout.activity_common_number);
         initView();
         initData();
+        initEvent();
     }
 
     private void initView() {
@@ -50,12 +53,55 @@ public class CommonNumberActivity extends Activity {
             }
             mGroupDatas.add(mGroupBean);
         }
-
+        //真实数据的创建
+        //mGroupDatas = CommonNumberDao.getGroupDatas(CommonNumberActivity.this);
         // adapter --> List<Group数据>--->Group数据(必备List<Child数据>)
         mEdListView.setAdapter(new CommonNumberAdapter());
     }
 
-    //TODO
+    private void initEvent() {
+
+        //点击child条目的时候拨打电话
+        mEdListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                ChildBean childBean = mGroupDatas.get(groupPosition).childrenDatas.get(childPosition);
+                String number = childBean.number;
+                // 拨号
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + number));
+                startActivity(intent);
+                return false;
+            }
+        });
+
+        //点击group控制展开与关闭
+        mEdListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                // 如果点击的当前条目是关闭的，就去展开，要求置顶显示
+                if (mCurrentOpenGroup != groupPosition) {
+                    //展开
+                    mEdListView.expandGroup(groupPosition);
+                    // 关闭已经打开的
+                    mEdListView.collapseGroup(mCurrentOpenGroup);
+                    // 置顶
+                    mEdListView.setSelectedGroup(groupPosition);
+                    // 记录当前打开
+                    mCurrentOpenGroup = groupPosition;
+                } else {
+                    // 点击的是打开的，关闭当前
+                    mEdListView.collapseGroup(groupPosition);
+                    // 记录没有一个是打开的
+                    mCurrentOpenGroup = -1;
+                }
+                // 是否需要系统实现点击行为
+                return true;
+            }
+        });
+    }
+
     private class CommonNumberAdapter extends BaseExpandableListAdapter {
         @Override
         public int getGroupCount() {
