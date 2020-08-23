@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/textNormal"
+        android:layout_width="@dimen/app_manager_layout_width_50dp"
+        android:layout_centerVertical="true"
+        android:text="@string/app_manager_memory"
+        android:textColor="@color/app_maneger_text_color"
+        android:textSize="@dimen/app_maneger_text_size_14sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_title">
+
+        <ProgressBar
+            android:id="@+id/pb_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_manager_layout_height_20dp"
+            android:layout_centerVertical="true"
+            android:progressDrawable="@drawable/progress_horizontal" />
+
+        <TextView
+            android:id="@+id/tv_left"
+            style="@style/textNormal"
+            android:layout_centerVertical="true"
+            android:text="@string/app_manager_text_left"
+            android:textColor="@color/app_maneger_text_left_color"
+            android:textSize="@dimen/app_maneger_text_size_left_12sp" />
+
+        <TextView
+            android:id="@+id/tv_right"
+            style="@style/textNormal"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/app_manager_text_right"
+            android:textColor="@color/app_maneger_text_left_color"
+            android:textSize="@dimen/app_maneger_text_size_left_12sp" />
+    </RelativeLayout>
+</RelativeLayout>

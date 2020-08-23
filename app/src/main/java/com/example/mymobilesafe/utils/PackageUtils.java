@@ -29,6 +29,7 @@ public class PackageUtils {
 
     /**
      * 获得版本号
+     *
      * @param context
      * @return
      */
@@ -46,6 +47,7 @@ public class PackageUtils {
 
     /**
      * 获取应用名称
+     *
      * @param context
      * @param info
      * @return
@@ -59,6 +61,7 @@ public class PackageUtils {
 
     /**
      * 获取应用图标
+     *
      * @param context
      * @param info
      * @return
@@ -72,6 +75,7 @@ public class PackageUtils {
 
     /**
      * 获取应用所占用的空间大小
+     *
      * @param info
      * @return
      */
@@ -81,5 +85,37 @@ public class PackageUtils {
         File file = new File(sourceDir);
         long length = file.length();
         return length;
+    }
+
+    /**
+     * 判断应用是否安装在SD卡
+     *
+     * @param info
+     * @return
+     */
+    public static boolean isInstallSD(PackageInfo info) {
+        ApplicationInfo applicationInfo = info.applicationInfo;
+        int flags = applicationInfo.flags;//应用的标记或者是特性
+        boolean isInstallSD = false;
+        if ((flags & ApplicationInfo.FLAG_EXTERNAL_STORAGE) == ApplicationInfo.FLAG_EXTERNAL_STORAGE) {
+            isInstallSD = true;
+        }
+        return isInstallSD;
+    }
+
+    /**
+     * 判断应用是否是系统应用
+     *
+     * @param info
+     * @return
+     */
+    public static boolean isSystemApp(PackageInfo info) {
+        ApplicationInfo applicationInfo = info.applicationInfo;
+        int flags = applicationInfo.flags;//应用的标记或者是特性
+        boolean isSystemApp = false;
+        if ((flags & ApplicationInfo.FLAG_SYSTEM) == ApplicationInfo.FLAG_SYSTEM) {
+            isSystemApp = true;
+        }
+        return isSystemApp;
     }
 }

@@ -108,7 +108,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
                 break;
             case 2:
 //                    "软件管家"
-
+                clickRjgj();
                 break;
             case 3:
 //                    "进程管理"
@@ -132,6 +132,14 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
             default:
                 break;
         }
+    }
+
+    /**
+     * 点击软件管家
+     */
+    private void clickRjgj() {
+        Intent intent = new Intent(HomeActivity.this, AppManagerActivity.class);
+        startActivity(intent);
     }
 
     /**
@@ -166,6 +174,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
         Intent intent = new Intent(HomeActivity.this, CommonToolActivity.class);
         startActivity(intent);
     }
+
     private void showPwdSettingDialog() {
         Log.d(TAG, "显示密码设置的对话框");
         AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);

@@ -13,4 +13,8 @@
         <!--        是否有开关-->
         <attr name="sivToggleEnable" format="boolean" />
     </declare-styleable>
+    <!--为ProgressStateViewa添加自定义属性-->
+    <declare-styleable name="ProgressStateView">
+        <attr name="psvText" format="reference|string" />
+    </declare-styleable>
 </resources>

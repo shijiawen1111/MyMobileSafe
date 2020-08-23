@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_8dp" >8dp</dimen>
+    <dimen name="margin_2dp" >2dp</dimen>
     <dimen name="margin_10dp" >10dp</dimen>
+    <dimen name="margin_1dp" >1dp</dimen>
     <dimen name="btn_query_12sp" >12sp</dimen>
     <dimen name="stroke_1dp" >1dp</dimen>
     <dimen name="stroke_3dp" >3dp</dimen>
     <dimen name="padding_8dp" >8dp</dimen>
+    <dimen name="padding_2dp" >2dp</dimen>
+    <dimen name="app_manager_layout_width_50dp" >50dp</dimen>
+    <dimen name="app_manager_layout_height_20dp" >20dp</dimen>
+    <dimen name="app_maneger_text_size_14sp" >14sp</dimen>
+    <dimen name="app_maneger_text_size_left_12sp" >12sp</dimen>
+    <dimen name="app_maneger_item_am_layout_width" >36dp</dimen>
+    <dimen name="app_maneger_item_am_layout_height" >36dp</dimen>
 </resources>

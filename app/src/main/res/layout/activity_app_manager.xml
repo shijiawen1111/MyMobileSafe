@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shijiawen="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.AppManagerActivity">
+
+    <TextView
+        style="@style/titleBarStyle"
+        android:text="@string/app_manager_name" />
+
+    <com.example.mymobilesafe.view.ProgressStateView
+        android:id="@+id/am_psv_rom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        shijiawen:psvText="@string/app_manager_memory" />
+
+    <com.example.mymobilesafe.view.ProgressStateView
+        android:id="@+id/am_psv_sd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_1dp"
+        shijiawen:psvText="@string/app_manager_sd" />
+
+    <ListView
+        android:id="@+id/am_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include layout="@layout/include_loading" />
+</LinearLayout>

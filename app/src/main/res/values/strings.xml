@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">安全卫士</string>
+    <string name="popup_uninstall">卸载</string>
+    <string name="popup_open">打开</string>
+    <string name="popup_share">分享</string>
+    <string name="popup_info">信息</string>
     <string name="sample_device_admin_description">手机防盗描述内容</string>
     <string name="sample_device_admin">手机防盗</string>
     <string name="add_admin_extra_app_text">开启手机防盗保护的描述</string>
@@ -14,4 +18,12 @@
     <string name="child_name">child的名字</string>
     <string name="child_number">child的number</string>
     <string name="activity_setting_text">设置中心</string>
+    <string name="app_manager_memory">内存:</string>
+    <string name="app_manager_text_left">左侧的文本</string>
+    <string name="app_manager_text_right">右侧的文本</string>
+    <string name="app_manager_name">软件管家</string>
+    <string name="app_manager_sd">SD卡:</string>
+    <string name="app_manager_item_am_name">名称</string>
+    <string name="app_manager_item_am_space">空间</string>
+    <string name="app_manager_item_am_install">安装位置</string>
 </resources>

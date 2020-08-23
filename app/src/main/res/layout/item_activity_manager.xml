@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_8dp">
+
+    <ImageView
+        android:id="@+id/item_am_ic_icon"
+        android:layout_width="@dimen/app_maneger_item_am_layout_width"
+        android:layout_height="@dimen/app_maneger_item_am_layout_height"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_8dp"
+        android:layout_toRightOf="@id/item_am_ic_icon"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_am_tv_name"
+            style="@style/textNormal"
+            android:text="@string/app_manager_item_am_name" />
+
+        <TextView
+            android:id="@+id/item_am_tv_install"
+            style="@style/textNormal"
+            android:text="@string/app_manager_item_am_install" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/item_am_tv_space"
+        style="@style/textNormal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/app_manager_item_am_space" />
+</RelativeLayout>

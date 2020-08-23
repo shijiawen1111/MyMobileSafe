@@ -62,5 +62,12 @@
         <item name="android:onClick">clickPre</item>
     </style>
 
+    <style name="ProgressStateView_psvText"></style>
+
+    <style name="popAnimation">
+        <item name="android:windowEnterAnimation">@anim/pop_enter</item>
+        <item name="android:windowExitAnimation">@anim/pop_exit</item>
+    </style>
+
 
 </resources>

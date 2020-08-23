@@ -1,6 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--    在清单文件中设置installlocation即可控制当前应用安装在哪个位置，默认为安装在系统的内存，
+        设置为preferExternal可以设置在sd卡上-->
+<!--    android:installLocation="preferExternal"-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mymobilesafe">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.mymobilesafe"
+    android:name=".MyApplication"
+    tools:replace="android:name"
+    android:installLocation="preferExternal">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 挂断电话需要配置一个权限 -->
@@ -8,8 +14,7 @@
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-    <!--外来电话读取号码权限-->
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" /> <!-- 外来电话读取号码权限 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -17,11 +22,10 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" /> <!-- 添加定位的权限 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
-    <!--外拨电话权限-->
-    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
-    <!--系统弹窗权限-->
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" /> <!-- 外拨电话权限 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /> <!-- 系统弹窗权限 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,11 +33,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.CommonNumberActivity"></activity>
+        <activity android:name=".activity.AppManagerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.DELETE" />
+                <action android:name="android.settings.APPLICATION_DETAILS_SETTINGS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.CommonNumberActivity" />
         <activity android:name=".activity.CommonToolActivity" />
         <activity android:name=".activity.NumberAddressActivity" />
         <activity android:name=".activity.CallSmsSafeActivity" />
         <activity android:name=".activity.BlackEditActivity" />
+        <activity android:name=".activity.ContactSelectActivity" />
+        <activity android:name=".activity.SetupActivity5" />
+        <activity android:name=".activity.SetupActivity4" />
+        <activity android:name=".activity.SetupActivity3" />
+        <activity android:name=".activity.SetupActivity2" />
+        <activity android:name=".activity.SetupActivity1" />
+        <activity android:name=".activity.SjfdActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.HomeActivity" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".service.CallSmsSafeService"
@@ -46,7 +78,8 @@
         <service
             android:name=".service.AutoCleanService"
             android:enabled="true"
-            android:exported="true" /> <!-- 设备管理员 -->
+            android:exported="true" />
+        <!-- 设备管理员 -->
         <receiver
             android:name=".receiver.SjfdAdminReceiver"
             android:description="@string/sample_device_admin_description"
@@ -73,25 +106,6 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activity.ContactSelectActivity" />
-        <activity android:name=".activity.SetupActivity5" />
-        <activity android:name=".activity.SetupActivity4" />
-        <activity android:name=".activity.SetupActivity3" />
-        <activity android:name=".activity.SetupActivity2" />
-        <activity android:name=".activity.SetupActivity1" />
-        <activity android:name=".activity.SjfdActivity" />
-        <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.HomeActivity" />
-        <activity
-            android:name=".activity.SplashActivity"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
