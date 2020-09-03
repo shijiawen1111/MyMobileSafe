@@ -112,7 +112,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
                 break;
             case 3:
 //                    "进程管理"
-
+                clickJcgl();
                 break;
             case 4:
 //                    "流量统计"
@@ -132,6 +132,14 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
             default:
                 break;
         }
+    }
+
+    /**
+     * 点击进程管理
+     */
+    private void clickJcgl() {
+        Intent intent = new Intent(HomeActivity.this, ProcessManagerActivity.class);
+        startActivity(intent);
     }
 
     /**

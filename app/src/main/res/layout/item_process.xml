@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/item_process_tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_progress_name"
+        android:textColor="@color/item_process_tv_color"
+        android:textSize="@dimen/btn_query_12sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/item_process_tv_color"
+        android:textSize="@dimen/btn_query_12sp"
+        android:text="@string/item_progress_size"
+        android:id="@+id/item_process_tv_size"/>
+
+</LinearLayout>

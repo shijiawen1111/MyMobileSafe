@@ -3,6 +3,7 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="item_process_tv_color">#99000000</color>
     <color name="title_bg">#399AD6</color>
     <color name="item_pressed">#88399AD6</color>
     <color name="item_group_bg">#33000000</color>

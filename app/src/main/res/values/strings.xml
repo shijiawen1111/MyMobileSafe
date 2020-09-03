@@ -3,7 +3,12 @@
     <string name="popup_uninstall">卸载</string>
     <string name="popup_open">打开</string>
     <string name="popup_share">分享</string>
+    <string name="progress_manager_title">进程管理</string>
     <string name="popup_info">信息</string>
+    <string name="progress_count">进程数:</string>
+    <string name="progress_rom">内存:</string>
+    <string name="item_progress_name">进程名:</string>
+    <string name="item_progress_size">进程占用的大小:</string>
     <string name="sample_device_admin_description">手机防盗描述内容</string>
     <string name="sample_device_admin">手机防盗</string>
     <string name="add_admin_extra_app_text">开启手机防盗保护的描述</string>
@@ -26,4 +31,6 @@
     <string name="app_manager_item_am_name">名称</string>
     <string name="app_manager_item_am_space">空间</string>
     <string name="app_manager_item_am_install">安装位置</string>
+    <string name="reverse_choose_all">反选</string>
+    <string name="choose_all">全选</string>
 </resources>

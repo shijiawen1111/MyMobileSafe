@@ -20,10 +20,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.mymobilesafe.R;
+import com.example.mymobilesafe.service.ProtectingService;
 import com.example.mymobilesafe.utils.Config;
 import com.example.mymobilesafe.utils.GZipUtils;
 import com.example.mymobilesafe.utils.PackageUtils;
 import com.example.mymobilesafe.utils.PreferenceUtils;
+import com.example.mymobilesafe.utils.ServiceStateUtils;
 import com.example.mymobilesafe.utils.StreamUtils;
 
 import org.json.JSONException;
@@ -155,6 +157,7 @@ public class SplashActivity extends Activity {
 
     /**
      * 去安装Apk的方法
+     *
      * @param file
      */
     private void installApk(File file) {
@@ -205,6 +208,10 @@ public class SplashActivity extends Activity {
             checkVersionUpdate();
         } else {
             load2Home();
+        }
+        //开启服务
+        if (!ServiceStateUtils.isServiceRunning(this, ProtectingService.class)) {
+            startService(new Intent(this, ProtectingService.class));
         }
     }
 

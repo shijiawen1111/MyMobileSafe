@@ -162,6 +162,7 @@ public class ProcessProvider {
         }
 
         PackageManager pm = context.getPackageManager();
+        //循环数据
         for (Map.Entry<String, List<ProcessBean>> me : map.entrySet()) {
             try {
                 String packageName = me.getKey();
@@ -171,8 +172,8 @@ public class ProcessProvider {
                 pkg.icon = PackageUtils.getAppIcon(context, info);
                 pkg.name = PackageUtils.getAppName(context, info);
                 pkg.packageName = packageName;
-                pkg.firstName = ChineseToEnglishUtils.getPinYinHeadChar(pkg.name).substring(0, 1);
-                for (ProcessBean bean:list) {
+                pkg.firstLetter = ChineseToEnglishUtils.getPinYinHeadChar(pkg.name).substring(0, 1);
+                for (ProcessBean bean : list) {
                     bean.pkg = pkg;
                 }
                 datas.addAll(list);
@@ -185,10 +186,11 @@ public class ProcessProvider {
 
     /**
      * 杀死应用的进程
+     *
      * @param context
      * @param packageName
      */
-    public static void killProcess(Context context,String packageName){
+    public static void killProcess(Context context, String packageName) {
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         am.killBackgroundProcesses(packageName);
     }

@@ -4,6 +4,8 @@
     <dimen name="margin_2dp" >2dp</dimen>
     <dimen name="margin_10dp" >10dp</dimen>
     <dimen name="margin_1dp" >1dp</dimen>
+    <dimen name="width_48dp" >48dp</dimen>
+    <dimen name="height_48dp" >48dp</dimen>
     <dimen name="btn_query_12sp" >12sp</dimen>
     <dimen name="stroke_1dp" >1dp</dimen>
     <dimen name="stroke_3dp" >3dp</dimen>

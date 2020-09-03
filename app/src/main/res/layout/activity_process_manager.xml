@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shijiwen="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/titleBarStyle"
+            android:text="@string/progress_manager_title" />
+
+        <ImageView
+            android:id="@+id/pm_iv_clean"
+            android:layout_width="@dimen/width_48dp"
+            android:layout_height="@dimen/height_48dp"
+            android:layout_alignParentRight="true"
+            android:scaleType="center"
+            android:src="@drawable/btn_clean_selector" />
+    </RelativeLayout>
+
+    <com.example.mymobilesafe.view.ProgressStateView
+        android:id="@+id/pm_psv_process"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        shijiwen:psvText="@string/progress_count" />
+
+    <com.example.mymobilesafe.view.ProgressStateView
+        android:id="@+id/pm_psv_rom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_1dp"
+        shijiwen:psvText="@string/progress_rom" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1000">
+
+        <ListView
+            android:id="@+id/pm_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include layout="@layout/include_loading" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/pm_btn_reverse_choose_all"
+            style="@style/btnCancerNormal"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:text="@string/reverse_choose_all" />
+
+        <Button
+            android:id="@+id/pm_btn_choose_all"
+            style="@style/btnOkNormal"
+            android:layout_weight="1"
+            android:text="@string/choose_all" />
+    </LinearLayout>
+</LinearLayout>
