@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_48dp"
+        android:background="@color/title_bg">
+
+        <ImageView
+            android:id="@+id/lock_iv_icon"
+            android:layout_width="@dimen/height_36dp"
+            android:layout_height="@dimen/height_36dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_8dp"
+            android:src="@drawable/ic_default" />
+
+        <TextView
+            android:id="@+id/lock_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_8dp"
+            android:layout_toRightOf="@+id/lock_iv_icon"
+            android:text="@string/progress_name"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+    <com.example.mymobilesafe.view.LockPatternView
+        android:id="@+id/lock_patter_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

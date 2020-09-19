@@ -16,9 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        app:sivText="@string/number_address"
         app:sivBackground="start"
-        app:sivToggleEnable="false"/>
+        app:sivText="@string/number_address"
+        app:sivToggleEnable="false" />
 
     <com.example.mymobilesafe.view.SettingItemView
         android:id="@+id/common_number"
@@ -27,4 +27,50 @@
         app:sivBackground="start"
         app:sivText="@string/common_number"
         app:sivToggleEnable="false" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10dp">
+
+        <com.example.mymobilesafe.view.SettingItemView
+            android:id="@+id/ac_siv_sms_backup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:sivBackground="start"
+            app:sivText="短信备份"
+            app:sivToggleEnable="false" />
+
+        <TextView
+            android:id="@+id/ac_siv_sms_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/app_manager_layout_height_20dp" />
+    </RelativeLayout>
+
+    <com.example.mymobilesafe.view.SettingItemView
+        android:id="@+id/ac_siv_sms_restore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:sivBackground="end"
+        app:sivText="短信还原"
+        app:sivToggleEnable="false" />
+
+    <com.example.mymobilesafe.view.SettingItemView
+        android:id="@+id/ac_siv_app_lock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:sivBackground="start"
+        app:sivText="程序锁设置"
+        app:sivToggleEnable="false" />
+
+    <com.example.mymobilesafe.view.SettingItemView
+        android:id="@+id/ac_siv_app_lock_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:sivBackground="end"
+        app:sivText="开启程序锁服务"
+        app:sivToggleEnable="true" />
 </LinearLayout>

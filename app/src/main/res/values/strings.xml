@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">安全卫士</string>
+    <string name="trafic_control">流量统计</string>
+    <string name="setting_app_lock">程序锁设置</string>
     <string name="popup_uninstall">卸载</string>
     <string name="popup_open">打开</string>
     <string name="popup_share">分享</string>
@@ -17,7 +19,7 @@
     <string name="number_btn_query">查询</string>
     <string name="number_query_address">归属地:</string>
     <string name="common_tool">常用工具</string>
-    <string name="common_number">常用号码</string>
+    <string name="common_number">常用号码查询</string>
     <string name="common_number_query">常用号码查询</string>
     <string name="group_title">group的title</string>
     <string name="child_name">child的名字</string>
@@ -33,4 +35,12 @@
     <string name="app_manager_item_am_install">安装位置</string>
     <string name="reverse_choose_all">反选</string>
     <string name="choose_all">全选</string>
+    <string name="lockscreen_access_pattern_cell_added">Cell added</string>
+    <string name="lockscreen_access_pattern_start">Pattern started</string>
+    <string name="lockscreen_access_pattern_detected">Pattern completed</string>
+    <string name="lockscreen_access_pattern_cleared">Pattern cleared</string>
+    <string name="accesility_service_lable">程序锁功能</string>
+    <string name="progress_name">应用名称</string>
+    <string name="accessibility_service_description">小米手机卫士程序锁,给你的应用带来安全</string>
+
 </resources>

@@ -12,5 +12,7 @@
     <color name="progress_bg">#33000000</color>
     <color name="progress_secondary">#55ff0000</color>
     <color name="progress_progress">#99ff0000</color>
-
+    <color name="textColorPrimaryDark">#ff000000</color>
+    <color name="textColorPrimary">#ffffffff</color>
+    <color name="white">#ffffffff</color>
 </resources>

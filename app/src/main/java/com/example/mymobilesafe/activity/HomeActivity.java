@@ -116,7 +116,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
                 break;
             case 4:
 //                    "流量统计"
-
+                clickLltj();
                 break;
             case 5:
 //                    "手机杀毒"
@@ -132,6 +132,14 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
             default:
                 break;
         }
+    }
+
+    /**
+     * 点击流量统计
+     */
+    private void clickLltj() {
+        Intent intent = new Intent(HomeActivity.this, TrafficActivity.class);
+        startActivity(intent);
     }
 
     /**

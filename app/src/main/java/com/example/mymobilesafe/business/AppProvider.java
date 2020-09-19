@@ -1,6 +1,7 @@
 package com.example.mymobilesafe.business;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -44,6 +45,39 @@ public class AppProvider {
             appInfo.isSystem = PackageUtils.isSystemApp(packageInfo);
             appInfo.pakagerName = packageInfo.packageName;
             list.add(appInfo);
+        }
+        return list;
+    }
+
+    /**
+     * 获取所有已经安装并且可以运行的应用程序
+     * @param context
+     * @return
+     */
+    public static List<AppInfo> getAllsLuchApps(Context context) {
+        List<AppInfo> list = new ArrayList<>();
+        PackageManager pm = context.getPackageManager();
+        List<PackageInfo> packages = pm.getInstalledPackages(0);
+        //迭代所有的安装包
+        for (PackageInfo info : packages) {
+            //如果不具备启动条件则继续
+            Intent intent = pm.getLaunchIntentForPackage(info.packageName);
+            if (intent == null) {
+                continue;
+            }
+            //获取到应用的包名
+            String name = PackageUtils.getAppName(context, info);
+            //获取到应用的icon
+            Drawable icon = PackageUtils.getAppIcon(context, info);
+            boolean installSD = PackageUtils.isInstallSD(info);
+            AppInfo bean = new AppInfo();
+            bean.name = name;
+            bean.icon = icon;
+            bean.space = PackageUtils.getAppSpace(info);
+            bean.isInstallSD = installSD;
+            bean.isSystem = PackageUtils.isSystemApp(info);
+            bean.pakagerName = info.packageName;
+            list.add(bean);
         }
         return list;
     }
