@@ -124,6 +124,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
                 break;
             case 6:
 //                    "缓存清理"
+                clickHcql();
                 break;
             case 7:
 //                    "常用工具"
@@ -132,6 +133,14 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
             default:
                 break;
         }
+    }
+
+    /**
+     * 点击缓存清理
+     */
+    private void clickHcql() {
+        Intent intent = new Intent(HomeActivity.this, CacheClearActivity.class);
+        startActivity(intent);
     }
 
     /**

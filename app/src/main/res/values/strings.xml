@@ -42,5 +42,12 @@
     <string name="accesility_service_lable">程序锁功能</string>
     <string name="progress_name">应用名称</string>
     <string name="accessibility_service_description">小米手机卫士程序锁,给你的应用带来安全</string>
+    <string name="program_name">应用名称</string>
+    <string name="program_cache_name">应用缓存大小</string>
+    <string name="cc_btn_quckly_scan">快速扫描</string>
+    <string name="cc_tv_cache_detail">缓存情况</string>
+    <string name="cc_btn_clear">一键清理</string>
+    <string name="item_cache_tv_name">应用名称</string>
+    <string name="item_cache_tv_cachesize">应用缓存大小</string>
 
 </resources>
