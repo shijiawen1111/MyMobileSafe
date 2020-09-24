@@ -49,5 +49,8 @@
     <string name="cc_btn_clear">一键清理</string>
     <string name="item_cache_tv_name">应用名称</string>
     <string name="item_cache_tv_cachesize">应用缓存大小</string>
+    <string name="antivirus_title">手机杀毒</string>
+    <string name="item_anvirus_name">应用名称</string>
+    <string name="item_anvirus_isvirus">是否是病毒</string>
 
 </resources>

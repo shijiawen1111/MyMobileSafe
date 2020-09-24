@@ -1,2 +1,3 @@
 rootProject.name='MyMobileSafe'
 include ':app'
+include ':cirleProgress_library'

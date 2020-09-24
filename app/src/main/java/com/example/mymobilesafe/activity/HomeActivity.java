@@ -120,7 +120,7 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
                 break;
             case 5:
 //                    "手机杀毒"
-
+                clickSjsd();
                 break;
             case 6:
 //                    "缓存清理"
@@ -133,6 +133,14 @@ public class HomeActivity extends Activity implements AdapterView.OnItemClickLis
             default:
                 break;
         }
+    }
+
+    /**
+     * 点击手机杀毒
+     */
+    private void clickSjsd() {
+        Intent intent = new Intent(HomeActivity.this, AntivirusActivity.class);
+        startActivity(intent);
     }
 
     /**

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/titleBarStyle"
+        android:text="@string/antivirus_title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_150dp"
+        android:background="@color/title_bg">
+        <!--    扫描中-->
+        <RelativeLayout
+            android:id="@+id/antivirus_rl_container_scanning"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--            显示进度,临时显示-->
+            <com.github.lzyzsd.circleprogress.ArcProgress
+                android:id="@+id/antivirus_arc_progress"
+                android:layout_width="@dimen/width_130dp"
+                android:layout_height="@dimen/height_130dp"
+                android:layout_centerInParent="true"
+                app:arc_bottom_text="扫描中..."
+                app:arc_bottom_text_size="@dimen/antivirus_arc_rextsize"
+                app:arc_progress="55"
+                app:arc_stroke_width="@dimen/antivirus_arc_stroke_10dp"
+                app:arc_text_color="@color/white" />
+
+            <TextView
+                android:id="@+id/antivirus_tv_pkg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="4dp"
+                android:text="包名"
+                android:textColor="@color/white"
+                android:textSize="@dimen/app_maneger_text_size_14sp" />
+        </RelativeLayout>
+        <!--        扫描后-->
+        <RelativeLayout
+            android:id="@+id/antivirus_rl_container_scanned"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/antivirus_tv_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:text="扫描结果"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/antivirus_btn_scan"
+                    style="@style/btnOkNormal"
+                    android:text="重新扫描"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </RelativeLayout>
+        <!--        动画容器-->
+        <LinearLayout
+            android:id="@+id/antivirus_ll_container_animation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/antivirus_iv_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/itcast" />
+
+            <ImageView
+                android:id="@+id/antivirus_iv_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/itheima" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/antivirus_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

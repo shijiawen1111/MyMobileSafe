@@ -302,20 +302,18 @@ public class SplashActivity extends Activity {
         InputStream stream = null;
         FileOutputStream fos = null;
         try {
-            File file = new File(getFilesDir(), "commonnum.db");
+            File file = new File(getFilesDir(), "antivirus.db");
             if (file.exists()) {
                 return;
             }
             AssetManager assets = this.getAssets();
-            stream = assets.open("commonnum.db");
+            stream = assets.open("antivirus.db");
             fos = new FileOutputStream(file);
             int len = -1;
             byte[] bytes = new byte[1024];
             while ((len = stream.read(bytes)) != -1) {
                 fos.write(bytes, 0, len);
             }
-            fos.close();
-            stream.close();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

@@ -17,4 +17,5 @@
     <color name="white">#ffffffff</color>
     <color name="program_text_color">#ffffff</color>
     <color name="item_cache_tv_text_color">#99000000</color>
+    <color name="item_anvirus_isvirus_textcolor">#99000000</color>
 </resources>
